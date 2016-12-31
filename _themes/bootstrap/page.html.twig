@@ -1,0 +1,30 @@
+{% extends "@theme/base.html.twig" %}
+
+{% block body %}
+    <div class="outer">
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <span class="navbar-brand">
+                        {# {{- this.title ? this.title : site.title -}} #}
+                        Καναβούρας Κωνσταντίνος
+                    </span>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://www.auth.gr/">Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- <main> -->
+            {% block content %}{% endblock %}
+        <!-- </main> -->
+
+        <footer class="page-footer">
+            {% block footer %}
+                <p>Copyright &copy; {{ "now" | date("Y") }}</p>
+            {% endblock %}
+        </footer>
+    </div>
+{% endblock %}

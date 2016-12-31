@@ -1,0 +1,29 @@
+---
+permalink: /
+title: Stakx
+slug: Yet another static website generator
+menu: false
+---
+
+{% extends "_layouts/base.html.twig" %}
+
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Καναβούρας Κωνσταντίνος</h1>
+
+            <p>Προπτυχιακός Φοιτητής στο Τμήμα Ηλεκτρολόγων Μηχανικών και Μηχανικών
+                Υπολογιστών</p>
+        </div>
+    </div>
+
+    <div class="boxes">
+        <a href="https://github.com/kongr45gpen" class="btn btn-primary btn-lg" aria-label="Github">
+            <span class="fa fa-github" aria-hidden="true"></span>
+        </a>
+
+        <a  href="mailto:mail@example.org"class="btn btn-danger btn-lg" aria-label="EMail">
+            <span class="fa fa-send-o" aria-hidden="true"></span>
+        </a>
+    </div>
+{% endblock %}

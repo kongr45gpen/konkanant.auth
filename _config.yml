@@ -1,0 +1,22 @@
+target: _site
+
+collections:
+  - name: posts
+    folder: _posts
+  - name: books
+    folder: _books
+
+data:
+  - _data
+
+datasets:
+  - name: calendar
+    folder: _datasets/calendar
+
+pageviews:
+  - _pages
+
+theme: bootstrap
+debug: true
+
+title: Καναβούρας Κωνσταντίνος
