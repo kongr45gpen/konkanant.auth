@@ -26,4 +26,13 @@ menu: false
             <span class="fa fa-send-o" aria-hidden="true"></span>
         </a>
     </div>
+
+    <div class="notes">
+        <h3>Σημειώσεις</h3>
+        <ul>
+        {% for note in data.notes[notes] %}
+            <li>{{ note.lesson }}</li>
+        {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
