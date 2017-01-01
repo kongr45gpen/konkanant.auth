@@ -39,6 +39,35 @@ body {
     text-align: center;
 }
 
+.notes {
+    flex: 0 1 auto;
+}
+
+.footer {
+    flex: 0 1 auto;
+}
+
+.footer .col-md-4 {
+    text-align: center;
+}
+
+.footer {
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+@media (min-width: 992px) {
+    .footer .col-md-4:first-child {
+        text-align: left;
+    }
+
+    .footer .col-md-4:last-child {
+        text-align: right;
+    }
+}
+
 .btn-lg {
     font-size: 40pt;
     text-align: center;
@@ -97,4 +126,8 @@ body {
     .btn-lg {
         font-size: 25pt;
     }
+}
+
+.row {
+    margin: 0;
 }
