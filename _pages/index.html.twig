@@ -30,7 +30,7 @@ menu: false
     <div class="notes container">
         <h3>Σημειώσεις</h3>
         <ul>
-        {% for note in data.notes.notes %}
+        {% for note in data.notes %}
             <li>
                 <a href="http://helit.org/ece-notes/{{ note.slug }}.pdf">
                     {{- note.lesson -}}
@@ -38,7 +38,7 @@ menu: false
                 <a href="https://github.com/kongr45gpen/ece-notes/blob/master/{{ note.slug }}.tex">
                     <i class="fa fa-github"></i>
                 </a>
-            </li>
+           </li>
         {% endfor %}
         </ul>
     </div>

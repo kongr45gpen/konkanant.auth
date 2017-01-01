@@ -9,12 +9,6 @@ collections:
 data:
   - _data
 
-datasets:
-  - name: calendar
-    folder: _datasets/calendar
-  - name: notes
-    folder: _datasets/notes
-
 pageviews:
   - _pages
 
