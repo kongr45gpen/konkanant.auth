@@ -6,8 +6,8 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <span class="navbar-brand">
-                        {# {{- this.title ? this.title : site.title -}} #}
-                        Καναβούρας Κωνσταντίνος
+                         {{- this.title ? this.title : site.title -}}s
+                        {#Καναβούρας Κωνσταντίνος#}
                     </span>
                 </div>
 
@@ -27,4 +27,6 @@
             {% endblock %}
         </footer>
     </div>
+
+    {% block custom_scripts %}{% endblock %}
 {% endblock %}

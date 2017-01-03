@@ -17,30 +17,33 @@ menu: false
         </div>
     </div>
 
-    <div class="boxes">
-        <a href="https://github.com/kongr45gpen" class="btn btn-primary btn-lg" aria-label="Github">
-            <span class="fa fa-github" aria-hidden="true"></span>
-        </a>
+    <div class="container content">
+        <div class="blue ground"></div>
+        <div class="red ground"></div>
+        <div class="boxes">
+            <a href="https://github.com/kongr45gpen" class="btn btn-primary btn-lg fancy-button" data-color="blue" aria-label="Github">
+                <span class="fa fa-github" aria-hidden="true"></span>
+            </a>
 
-        <a  href="mailto:mail@example.org"class="btn btn-danger btn-lg" aria-label="EMail">
-            <span class="fa fa-send-o" aria-hidden="true"></span>
-        </a>
-    </div>
-
-    <div class="notes container">
-        <h3>Σημειώσεις</h3>
-        <ul>
-        {% for note in data.notes %}
-            <li>
-                <a href="http://helit.org/ece-notes/{{ note.slug }}.pdf">
-                    {{- note.lesson -}}
-                </a>
-                <a href="https://github.com/kongr45gpen/ece-notes/blob/master/{{ note.slug }}.tex">
-                    <i class="fa fa-github"></i>
-                </a>
-           </li>
-        {% endfor %}
-        </ul>
+            <a  href="mailto:mail@example.org"class="btn btn-danger btn-lg fancy-button" data-color="red" aria-label="EMail">
+                <span class="fa fa-send-o" aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="notes">
+            <h3>Σημειώσεις</h3>
+            <ul>
+                {% for note in data.notes %}
+                    <li>
+                        <a href="http://helit.org/ece-notes/{{ note.slug }}.pdf">
+                            {{- note.lesson -}}
+                        </a>
+                        <a href="https://github.com/kongr45gpen/ece-notes/blob/master/{{ note.slug }}.tex">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 
     <footer class="footer">
@@ -69,4 +72,35 @@ menu: false
             </div>
         </div>
     </footer>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".fancy-button").mouseenter(function() {
+                $boxes = $(".container.content");
+                $overlay = $(".ground." + $(this).data('color'));
+
+                $overlay.css('top', $boxes.position().top);
+//                $overlay.css('left', $boxes.position().left);
+                $overlay.css('left', 0);
+//                $overlay.css('width', $boxes.width());
+                $overlay.css('width', '100vw');
+                $overlay.css('height', $boxes.height());
+                $overlay.show();
+            }).mousemove(function (event) {
+                var y = event.pageY - $(this).offset().top;
+                var height = $(this).height();
+                var distance = (y-height/2.0);
+                var opacity = .5*Math.cos(distance/height * Math.PI);
+
+                // Smoothing
+//                opacity = Math.sin(opacity * Math.PI/2);
+
+                $overlay.css('opacity', opacity);
+            }).mouseleave(function() {
+                $overlay.hide();
+            });
+        });
+    </script>
 {% endblock %}
