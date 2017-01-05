@@ -118,6 +118,9 @@ body {
   .btn-lg {
     font-size: 25pt; } }
 
+.jumbotron.notes {
+  background-image: url("../imgs/notes.png"); }
+
 .row {
   margin: 0; }
 
@@ -132,3 +135,10 @@ body {
 
 .boxes, .notes {
   z-index: 5; }
+
+.lectures {
+  font-size: 9pt; }
+  .lectures .count {
+    font-family: "monospace"; }
+  .lectures h5 {
+    font-size: inherit; }

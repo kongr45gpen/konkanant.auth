@@ -1,0 +1,90 @@
+---
+permalink: /konkanant/notes
+title: Σημειώσεις
+---
+
+{% extends "_layouts/base.html.twig" %}
+
+{% block content %}
+    <div class="notes jumbotron">
+        <div class="container">
+            <h1>Σημειώσεις</h1>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>Σημειώσεις</h1>
+
+        {% for note in data.notes %}
+            <div class="media">
+                <div class="media-body">
+                    <h4 class="media-heading">{{ note.lesson }}
+                        <br><small>Εξάμηνο: <b>{{ note.semester }}</b><sup>ο</sup>, Ακαδημαϊκό έτος: <b>{{ note.year }}</b></small>
+                    </h4>
+                    <p>
+                        Τελευταία ενημέρωση: {{ note.updated|date("d F Y") }}
+                    </p>
+                    <a href="http://helit.org/ece-notes/{{ note.slug }}.pdf" class="btn btn-danger" aria-label="PDF">
+                        <span class="fa fa-file-pdf-o" aria-hidden="true"></span>
+                        Download
+                    </a>
+                    <a href="https://github.com/kongr45gpen/ece-notes/blob/master/{{ note.slug }}.tex" class="btn btn-default" aria-label="LaTeX source">
+                        <span class="fa fa-code" aria-hidden="true"></span>
+                        Κώδικας σε LaTeX
+                    </a>
+
+                    {%- if note.lectures is not empty %}
+                    <div class="lectures">
+                        <h5>Τελευταίες Διαλέξεις:</h5>
+                        <ul>
+                            {% for lecture in note.lectures %}
+                                <li>
+                                    {{ lecture.professor }}
+                                    #<span class="count">{{ lecture.count }}</span>
+                                    ({{ lecture.updated|date("d/m/Y") }})
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="media-right">
+                    <a href="#">
+                        <img class="media-object" src="{{ note.image }}" alt="Lesson logo" style="height: 128px">
+                    </a>
+                </div>
+            </div>
+            {% if not loop.last %}
+                <hr role="separator">
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <footer class="footer">
+        <div class="row">
+            <div class="col-md-4">
+                &nbsp;
+            </div>
+            <div class="col-md-4">
+                <p class="text-center text-muted">Built with <a href="https://github.com/stakx-io/stakx">Stakx</a></p>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline">
+                    <li>
+                        <a href="{{ url('/') }}">Home</a>
+                    </li>
+                    {% for item in menu | order("title") %}
+                        <li>
+                            <a href="{{ url(item.permalink) }}">{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
+                    <li>
+                        <a href="https://github.com/kongr45gpen/konkanant.auth">
+                            <i class="fa fa-fw fa-github"></i>
+                        </a>
+                </ul>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
