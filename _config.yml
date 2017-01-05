@@ -1,3 +1,5 @@
+baseurl: konkanant
+
 target: _site
 
 collections:
