@@ -30,7 +30,7 @@ menu: false
             </a>
         </div>
         <div class="notes">
-            <h3><a href="{{ url(menu.notes.permalink) }}">Σημειώσεις</a></h3>
+            <h3><a href="{{ url(menu.notes) }}">Σημειώσεις</a></h3>
             <ul>
                 {% for note in data.notes %}
                     <li>
@@ -61,7 +61,7 @@ menu: false
                     </li>
                     {% for item in menu | order("title") %}
                         <li>
-                            <a href="{{ url(item.permalink) }}">{{ item.title }}</a>
+                            <a href="{{ url(item) }}">{{ item.title }}</a>
                         </li>
                     {% endfor %}
                     <li>
