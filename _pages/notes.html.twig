@@ -42,7 +42,7 @@ title: Σημειώσεις
                                 <li>
                                     {{ lecture.professor }}
                                     #<span class="count">{{ lecture.count }}</span>
-                                    ({{ lecture.updated|date("d/m/Y") }})
+                                    ({{ lecture.date|date("d/m/Y") }})
                                 </li>
                             {% endfor %}
                         </ul>

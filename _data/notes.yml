@@ -1,14 +1,8 @@
-- lesson: Διαφορικές Εξισώσεις
-  slug: diaf
-  semester: 2
-  year: 2015-2016
-  updated: 2016-01-01 00:00:00.00 -8
-  image: http://functions.wolfram.com/EllipticFunctions/NevilleThetaC/13/01/0002/MainEq1.gif
 - lesson: Θεωρία Σημάτων & Συστημάτων
   slug: signals
   semester: 3
   year: 2016-2017
-  updated: 2016-01-18
+  updated: 2016-12-31
   image: http://www.engineerblogs.net/wp-content/uploads/2012/04/Signals-and-Systems-a-engineerblogs.png
   lectures:
     - { professor: Rekanos, count: 18, date: 20-12-2016 }
@@ -16,8 +10,14 @@
   slug: applied
   semester: 3
   year: 2016-2017
-  updated: 2016-12-15
+  updated: 2016-12-31
   image: https://upload.wikimedia.org/wikipedia/commons/e/eb/Principle_branch_of_arg_on_Riemann_(small).png
   lectures:
-    - { professor: Atreas, count: 13, date: 20-12-2016 }
+    - { professor: Atreas, count: 13, date: 2016-12-20 }
     - { professor: Kehagias, count: 10, date: 23-12-2016 }
+- lesson: Διαφορικές Εξισώσεις
+  slug: diaf
+  semester: 2
+  year: 2015-2016
+  updated: 2016-06-21
+  image: http://functions.wolfram.com/EllipticFunctions/NevilleThetaC/13/01/0002/MainEq1.gif
