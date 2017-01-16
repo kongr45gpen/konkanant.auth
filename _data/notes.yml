@@ -2,7 +2,7 @@
   slug: signals
   semester: 3
   year: 2016-2017
-  updated: 2016-12-31
+  updated: 2017-01-15
   image: http://www.engineerblogs.net/wp-content/uploads/2012/04/Signals-and-Systems-a-engineerblogs.png
   lectures:
     - { professor: Rekanos, count: 18, date: 20-12-2016 }
@@ -10,11 +10,11 @@
   slug: applied
   semester: 3
   year: 2016-2017
-  updated: 2016-12-31
+  updated: 2017-01-13
   image: https://upload.wikimedia.org/wikipedia/commons/e/eb/Principle_branch_of_arg_on_Riemann_(small).png
   lectures:
     - { professor: Atreas, count: 13, date: 2016-12-20 }
-    - { professor: Kehagias, count: 10, date: 23-12-2016 }
+    - { professor: Kehagias, count: 11, date: 13-01-2017 }
 - lesson: Διαφορικές Εξισώσεις
   slug: diaf
   semester: 2
