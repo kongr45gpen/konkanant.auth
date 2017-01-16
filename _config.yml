@@ -14,6 +14,10 @@ data:
 pageviews:
   - _pages
 
+exclude:
+  - gulpfile.js
+  - package.json
+
 theme: bootstrap
 debug: true
 

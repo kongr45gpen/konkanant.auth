@@ -142,3 +142,15 @@ body {
     font-family: "monospace"; }
   .lectures h5 {
     font-size: inherit; }
+
+.media {
+  overflow: visible; }
+
+.media-object {
+  padding: 1px;
+  border: 1px solid #555;
+  background-color: #eee;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 1px;
+  height: 128px;
+  box-sizing: content-box; }

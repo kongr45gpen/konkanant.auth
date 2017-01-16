@@ -50,9 +50,14 @@ title: Σημειώσεις
                     {% endif %}
                 </div>
                 <div class="media-right">
-                    <a href="#">
-                        <img class="media-object" src="{{ note.image }}" alt="Lesson logo" style="height: 128px">
-                    </a>
+                    {#<a href="#">#}
+                        {% set images = finder('assets/imgs/notes').files.name( note.slug ~ '.*') %}
+                        {% if images is not empty %}
+                            {% for image in images %}
+                                <img class="media-object" src="{{ url(image) }}" alt="Lesson logo">
+                            {% endfor %}
+                        {% endif %}
+                    {#</a>#}
                 </div>
             </div>
             {% if not loop.last %}
