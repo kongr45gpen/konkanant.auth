@@ -21,6 +21,7 @@
     "gulp-print": "~2.0.1",
     "gulp-rename": "~1.2.2",
     "gulp-replace": "~0.5.4",
+    "gulp-responsive": "^2.7.0",
     "gulp-rtlcss": "~1.0.0",
     "gulp-uglify": "~2.0.0",
     "gulp-watch": "~4.3.11",

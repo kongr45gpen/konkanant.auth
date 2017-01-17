@@ -102,46 +102,44 @@ body {
     box-shadow: 0 0 0.5em #D9534F;
 }
 
-@media screen and (min-width: 1921px) {
-    .jumbotron {
-        background-image: url('../imgs/bg-large.jpg');
-    }
-}
+@mixin responsive-jumbotron($image) {
+    // TODO: Make this work for types other than jpg
 
-@media screen and (min-width: 1025px) and (max-width: 1920px) {
-    .jumbotron {
-        background-image: url('../imgs/bg-1920.jpg');
+    @media screen and (min-width: 1921px) {
+        background-image: url('../imgs/' + $image + '-large.jpg');
     }
-}
 
-@media screen and (min-width: 721px) and (max-width: 1024px) {
-    .jumbotron {
-        background-image: url('../imgs/bg-1024.jpg');
+    @media screen and (min-width: 1025px) and (max-width: 1920px) {
+        background-image: url('../imgs/' + $image + '-1920.jpg');
+    }
+
+    @media screen and (min-width: 513px) and (max-width: 1024px) {
+        background-image: url('../imgs/' + $image + '-1024.jpg');
+    }
+
+    @media screen and (max-width: 512px) {
+        background-image: url('../imgs/' + $image + '-512.jpg');
     }
 }
 
 @media screen and (min-width: 513px) and (max-width: 720px) {
-    .jumbotron {
-        background-image: url('../imgs/bg-720.jpg');
-    }
-
     .btn-lg {
         font-size: 30pt;
     }
 }
 
 @media screen and (max-width: 512px) {
-    .jumbotron {
-        background-image: url('../imgs/bg-512.jpg');
-    }
-
     .btn-lg {
         font-size: 25pt;
     }
 }
 
-.jumbotron.notes {
-    background-image: url('../imgs/notes.jpg');
+.jumbotron {
+    @include responsive-jumbotron('bg');
+
+    &.notes {
+        @include responsive-jumbotron('notes');
+    }
 }
 
 .row {

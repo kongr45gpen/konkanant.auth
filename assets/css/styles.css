@@ -94,6 +94,14 @@ body {
 .btn-danger {
   box-shadow: 0 0 0.5em #D9534F; }
 
+@media screen and (min-width: 513px) and (max-width: 720px) {
+  .btn-lg {
+    font-size: 30pt; } }
+
+@media screen and (max-width: 512px) {
+  .btn-lg {
+    font-size: 25pt; } }
+
 @media screen and (min-width: 1921px) {
   .jumbotron {
     background-image: url("../imgs/bg-large.jpg"); } }
@@ -102,24 +110,29 @@ body {
   .jumbotron {
     background-image: url("../imgs/bg-1920.jpg"); } }
 
-@media screen and (min-width: 721px) and (max-width: 1024px) {
+@media screen and (min-width: 513px) and (max-width: 1024px) {
   .jumbotron {
     background-image: url("../imgs/bg-1024.jpg"); } }
 
-@media screen and (min-width: 513px) and (max-width: 720px) {
-  .jumbotron {
-    background-image: url("../imgs/bg-720.jpg"); }
-  .btn-lg {
-    font-size: 30pt; } }
-
 @media screen and (max-width: 512px) {
   .jumbotron {
-    background-image: url("../imgs/bg-512.jpg"); }
-  .btn-lg {
-    font-size: 25pt; } }
+    background-image: url("../imgs/bg-512.jpg"); } }
 
-.jumbotron.notes {
-  background-image: url("../imgs/notes.jpg"); }
+@media screen and (min-width: 1921px) {
+  .jumbotron.notes {
+    background-image: url("../imgs/notes-large.jpg"); } }
+
+@media screen and (min-width: 1025px) and (max-width: 1920px) {
+  .jumbotron.notes {
+    background-image: url("../imgs/notes-1920.jpg"); } }
+
+@media screen and (min-width: 513px) and (max-width: 1024px) {
+  .jumbotron.notes {
+    background-image: url("../imgs/notes-1024.jpg"); } }
+
+@media screen and (max-width: 512px) {
+  .jumbotron.notes {
+    background-image: url("../imgs/notes-512.jpg"); } }
 
 .row {
   margin: 0; }

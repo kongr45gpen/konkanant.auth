@@ -7,6 +7,31 @@ var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var util = require('gulp-util');
 
+gulp.task('assets:responsive', function () {
+    var responsive = require('gulp-responsive');
+
+    return gulp.src('assets/imgs/notes.jpg')
+        .pipe(responsive({
+            'notes.jpg': [
+                {
+                    rename: { suffix: '-512' },
+                    width: 512
+                },
+                {
+                    rename: { suffix: '-1024' },
+                    width: 1024
+                },
+                {
+                    rename: { suffix: '-1920' },
+                    width: 1920
+                },
+                {
+                    rename: { suffix: '-large' }
+                }
+            ]
+        })).pipe(gulp.dest('assets/imgs'));
+});
+
 gulp.task('sass', function(){
     return gulp.src('assets/scss/*.scss')
         .pipe(sass()).on('error', swallowError)
