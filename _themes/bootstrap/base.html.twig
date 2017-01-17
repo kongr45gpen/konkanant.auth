@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>
-            {%- if this.title is defined -%}
+            {%- if this.title is defined and this.title != site.title -%}
                 {{ this.title }} - {{ site.title }}
             {%- else -%}
                 {{ site.title }}
