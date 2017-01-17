@@ -1,0 +1,3 @@
+email:
+  default: http://example.com/ # The default target for the mail link
+  address: mail@example.com # The e-mail address

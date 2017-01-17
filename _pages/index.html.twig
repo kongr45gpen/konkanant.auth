@@ -25,7 +25,7 @@ menu: false
                 <span class="fa fa-github" aria-hidden="true"></span>
             </a>
 
-            <a href="mailto:mail@example.com" class="btn btn-danger btn-lg fancy-button" data-color="red" aria-label="EMail">
+            <a href="{{ data.personal.email.default }}" class="btn btn-danger btn-lg fancy-button" id="mail-button" data-color="red" aria-label="EMail">
                 <span class="fa fa-send-o" aria-hidden="true"></span>
             </a>
         </div>
@@ -76,7 +76,28 @@ menu: false
 
 {% block scripts %}
     <script type="text/javascript">
+        {# One time pad #}
+        {# TODO: Move this outside #}
+        {# TODO: Improve this #}
+        {%- set key = 'jg4rRz43GWXQII7a6dnzl0a7gz7c1pgx' -%}
+        {%- set newkey = '' %}
+        {%- set length = data.personal.email.address|length %}
+        {%- set keylength = key|length %}
+        {%- for i in range(0, length,1) -%}
+            {%- set newkey = key ~ key|slice(i % keylength, 1) -%}
+        {%- endfor -%}
+
         $(document).ready(function() {
+            {# Unnecessarily complicated e-mail address decryption #}
+            var c = "{{ data.personal.email.address b-xor newkey }}";
+            var key = "{{ newkey }}";
+            var email = "";
+            for (i = 0; i < c.length; i++) {
+                email += String.fromCharCode(c.charCodeAt(i) ^ key.charCodeAt(i));
+            }
+
+            $("#mail-button").attr('href', 'mailto:' + email);
+
             $(".fancy-button").mouseenter(function() {
                 $boxes = $(".container.content");
                 $overlay = $(".ground." + $(this).data('color'));

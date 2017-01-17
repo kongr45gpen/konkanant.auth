@@ -1,3 +1,6 @@
+# Application specific
+/_data/personal.yml
+
 ### OSX ###
 *.DS_Store
 .AppleDouble
@@ -102,4 +105,4 @@ bower_components
 
 ### Sass ###
 *.css.map
-*.css
+#*.css
