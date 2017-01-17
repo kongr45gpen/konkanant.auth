@@ -10,11 +10,12 @@ var util = require('gulp-util');
 gulp.task('assets:responsive', function () {
     var responsive = require('gulp-responsive');
 
-    return gulp.src('assets/imgs/notes.jpg')
+    return gulp.src('assets/imgs/{bg,notes}.jpg')
         .pipe(responsive({
-            'notes.jpg': [
+            '*.jpg': [
                 {
                     rename: { suffix: '-512' },
+                    quality: 90,
                     width: 512
                 },
                 {
