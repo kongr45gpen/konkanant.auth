@@ -134,6 +134,12 @@ body {
     }
 }
 
+@media screen and (max-width: 720px) {
+    .container.content {
+        flex-direction: column;
+    }
+}
+
 .jumbotron {
     @include responsive-jumbotron('bg');
 

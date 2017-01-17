@@ -102,6 +102,11 @@ body {
   .btn-lg {
     font-size: 25pt; } }
 
+@media screen and (max-width: 720px) {
+  .container.content {
+    -ms-flex-direction: column;
+        flex-direction: column; } }
+
 @media screen and (min-width: 1921px) {
   .jumbotron {
     background-image: url("../imgs/bg-large.jpg"); } }
