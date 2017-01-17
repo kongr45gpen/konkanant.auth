@@ -1,3 +1,5 @@
 email:
   default: http://example.com/ # The default target for the mail link
   address: mail@example.com # The e-mail address
+
+google_analytics: UA-111111111 # Your google analytics tracking code
