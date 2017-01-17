@@ -5,6 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        {%- if this.description is defined -%}
+            <meta name="description" content="{{ this.description }}">
+        {%- endif -%}
+        {%- if this.keywords is defined -%}
+            <meta name="keywords" content="{{ this.keywords }}">
+        {%- endif -%}
+
         <title>
             {%- if this.title is defined and this.title != site.title -%}
                 {{ this.title }} - {{ site.title }}
