@@ -1,3 +1,11 @@
+- lesson: Αριθμητική Ανάλυση
+  slug: numerical
+  semester: 4
+  year: 2016-2017
+- lesson: Στοχαστικό Σήμα
+  slug: stochastic
+  semester: 4
+  year: 2016-2017
 - lesson: Θεωρία Σημάτων & Συστημάτων
   slug: signals
   semester: 3
