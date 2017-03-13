@@ -10,19 +10,11 @@
   slug: signals
   semester: 3
   year: 2016-2017
-  updated: 2017-01-18
-  lectures:
-    - { professor: Rekanos, count: 18, date: 20-12-2016 }
 - lesson: Εφαρμοσμένα Μαθηματικά I
   slug: applied
   semester: 3
   year: 2016-2017
-  updated: 2017-01-13
-  lectures:
-    - { professor: Atreas, count: 13, date: 2016-12-20 }
-    - { professor: Kehagias, count: 11, date: 13-01-2017 }
 - lesson: Διαφορικές Εξισώσεις
   slug: diaf
   semester: 2
   year: 2015-2016
-  updated: 2016-06-21

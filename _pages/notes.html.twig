@@ -19,13 +19,14 @@ keywords: notes, σημειώσεις, σημειωσεις, διαλέξεις,
         <h1>Σημειώσεις</h1>
 
         {% for note in data.notes %}
+            {% set repository = data["notes-extracted"][note.slug] %}
             <div class="media">
                 <div class="media-body">
                     <h4 class="media-heading">{{ note.lesson }}
                         <br><small>Εξάμηνο: <b>{{ note.semester }}</b><sup>ο</sup>, Ακαδημαϊκό έτος: <b>{{ note.year }}</b></small>
                     </h4>
                     <p>
-                        Τελευταία ενημέρωση: {{ note.updated|date("d F Y") }}
+                        Τελευταία ενημέρωση: {{ repository.last_update|date("d F Y") }}
                     </p>
                     <a href="http://helit.org/ece-notes/{{ note.slug }}.pdf" class="btn btn-danger" aria-label="PDF">
                         <span class="fa fa-file-pdf-o" aria-hidden="true"></span>
@@ -36,14 +37,14 @@ keywords: notes, σημειώσεις, σημειωσεις, διαλέξεις,
                         Κώδικας σε LaTeX
                     </a>
 
-                    {%- if note.lectures is not empty %}
+                    {%- if repository.lectures is not empty %}
                     <div class="lectures">
                         <h5>Τελευταίες Διαλέξεις:</h5>
                         <ul>
-                            {% for lecture in note.lectures %}
+                            {% for lecture in repository.lectures %}
                                 <li>
                                     {{ lecture.professor }}
-                                    #<span class="count">{{ lecture.count }}</span>
+                                    #<span class="count">{{ lecture.number }}</span>
                                     ({{ lecture.date|date("d/m/Y") }})
                                 </li>
                             {% endfor %}

@@ -1,5 +1,6 @@
 # Application specific
 /_data/personal.yml
+/_data/notes-extracted.yml
 
 ### OSX ###
 *.DS_Store
