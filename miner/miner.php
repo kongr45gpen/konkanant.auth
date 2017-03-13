@@ -64,7 +64,6 @@ FORMAT;
 
             $arguments[20] = "--grep=lecture \\?[0-9]\\+";
             $lastlecture = json_decode($this->gitCommand($arguments));
-            $matches = ["","",""];
             if ($lastlecture) {
                 preg_match('/(.*) Lecture ([0-9]+)/i', $lastlecture->subject, $matches);
             }
