@@ -17,6 +17,7 @@ pageviews:
 exclude:
   - gulpfile.js
   - package.json
+  - miner
 
 theme: bootstrap
 debug: true
