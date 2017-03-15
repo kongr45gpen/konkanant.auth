@@ -68,13 +68,16 @@ FORMAT;
                 preg_match('/(.*) Lecture ([0-9]+)/i', $lastlecture->subject, $matches);
             }
 
+            $filesize = filesize($this->path . '/' . $filename);
+
             $output[$subject['slug']] = [
                 'last_update' => $lastcommit->author->date,
                 'lectures' => (!$lastlecture) ? null : [ [
                     'date' => $lastlecture->author->date,
                     'professor' => $matches[1],
-                    'number' => $matches[2]
+                    'number' => (int) $matches[2]
                 ] ],
+                'filesize' => $filesize
             ];
         }
 
