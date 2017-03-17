@@ -9,6 +9,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Process\ProcessBuilder;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Yaml\Yaml;
 
 
@@ -33,6 +34,9 @@ FORMAT;
             ->getProcess();
 
         $process->run();
+        if (!$process->isSuccessful()) {
+            throw new ProcessFailedException($process);
+        }
         return $process->getOutput();
     }
 
@@ -47,14 +51,14 @@ FORMAT;
         $this->path = $input->getArgument('repository');
         $data = Yaml::parse(file_get_contents(__DIR__ . '/../_data/notes.yml'));
 
-        $output = [];
+        $out = [];
         foreach ($data as $subject) {
             $filename = $subject['slug'] . '.tex';
 
             $arguments = [
                 'log',
                 '-n 1',
-                '--date=iso-strict',
+                '--date=iso',
                 '--format=' . self::$jsonFormat,
                 '-i',
             ];
@@ -70,7 +74,7 @@ FORMAT;
 
             $filesize = filesize($this->path . '/' . $filename);
 
-            $output[$subject['slug']] = [
+            $out[$subject['slug']] = [
                 'last_update' => $lastcommit->author->date,
                 'lectures' => (!$lastlecture) ? null : [ [
                     'date' => $lastlecture->author->date,
@@ -81,7 +85,11 @@ FORMAT;
             ];
         }
 
-        file_put_contents(__DIR__ . '/../_data/notes-extracted.yml', Yaml::dump($output));
+        file_put_contents(__DIR__ . '/../_data/notes-extracted.yml', Yaml::dump($out));
+
+        if ($output->isVerbose()) {
+            $output->writeln("<info>Update successful</info>");
+        }
     }
 });
 
