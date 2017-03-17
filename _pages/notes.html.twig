@@ -1,5 +1,5 @@
 ---
-permalink: /notes
+permalink: /notes/
 title: Σημειώσεις
 description: Σημειώσεις από μαθήματα του τμήματος Ηλεκτρολόγων Μηχανικών και Μηχανικών Υπολογιστών του ΑΠΘ
 keywords: notes, σημειώσεις, σημειωσεις, διαλέξεις, μαθήματα, παραδόσεις, ηλεκτρολόγοι, αριστοτέλειο, πανεπιστήμιο, Θεσσαλονίκης, Καναβουρας, Κωνσταντινος, λάπτοπ, laptop, latex, pdf
@@ -26,7 +26,7 @@ keywords: notes, σημειώσεις, σημειωσεις, διαλέξεις,
                         <br><small>Εξάμηνο: <b>{{ note.semester }}</b><sup>ο</sup>, Ακαδημαϊκό έτος: <b>{{ note.year }}</b></small>
                     </h4>
                     <p>
-                        Τελευταία ενημέρωση: {{ repository.last_update|date("d F Y") }}
+                        Τελευταία ενημέρωση: {{ repository.last_update|date("d F Y") -}}
                     </p>
                     <a href="http://helit.org/ece-notes/{{ note.slug }}.pdf" class="btn btn-danger" aria-label="PDF">
                         <span class="fa fa-file-pdf-o" aria-hidden="true"></span>
