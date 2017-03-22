@@ -26,7 +26,9 @@ keywords: notes, σημειώσεις, σημειωσεις, διαλέξεις,
                         <br><small>Εξάμηνο: <b>{{ note.semester }}</b><sup>ο</sup>, Ακαδημαϊκό έτος: <b>{{ note.year }}</b></small>
                     </h4>
                     <p>
-                        Τελευταία ενημέρωση: {{ repository.last_update|date("d F Y") -}}
+                        Τελευταία ενημέρωση: <span class="last-update" data-timestamp="{{ repository.last_update }}">
+                            {{- repository.last_update|date("d F Y") -}}
+                        </span>
                     </p>
                     <a href="http://helit.org/ece-notes/{{ note.slug }}.pdf" class="btn btn-danger" aria-label="PDF">
                         <span class="fa fa-file-pdf-o" aria-hidden="true"></span>
@@ -95,4 +97,17 @@ keywords: notes, σημειώσεις, σημειωσεις, διαλέξεις,
             </div>
         </div>
     </footer>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/locale/el.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".last-update").each(function() {
+                var time = moment($(this).data('timestamp'));
+                $(this).text(time.format('DD MMMM YYYY') + ' (' + time.fromNow() + ')');
+            });
+        });
+    </script>
 {% endblock %}
