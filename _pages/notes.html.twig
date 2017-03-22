@@ -26,7 +26,7 @@ keywords: notes, σημειώσεις, σημειωσεις, διαλέξεις,
                         <br><small>Εξάμηνο: <b>{{ note.semester }}</b><sup>ο</sup>, Ακαδημαϊκό έτος: <b>{{ note.year }}</b></small>
                     </h4>
                     <p>
-                        Τελευταία ενημέρωση: <span class="last-update" data-timestamp="{{ repository.last_update }}">
+                        Τελευταία ενημέρωση: <span class="last-update" data-timestamp="{{ repository.last_update|date("c") }}">
                             {{- repository.last_update|date("d F Y") -}}
                         </span>
                     </p>
