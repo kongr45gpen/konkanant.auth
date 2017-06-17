@@ -17,12 +17,19 @@ keywords: notes, σημειώσεις, σημειωσεις, διαλέξεις,
 
     <div class="container">
         <h1>Σημειώσεις</h1>
+    </div>
 
-        {% for note in data.notes %}
-            {% set repository = data["notes-extracted"][note.slug] %}
+    {% for note in data.notes %}
+        {% set repository = data["notes-extracted"][note.slug] %}
+        <div class="media-container {%- if note.selected %} media-active{% endif %}">
             <div class="media">
                 <div class="media-body">
-                    <h4 class="media-heading">{{ note.lesson }}
+                    <h4 class="media-heading">
+                        {%- if note.selected %}
+                            <strong>{{ note.lesson }}</strong>
+                        {%- else -%}
+                            {{ note.lesson }}
+                        {%- endif %}
                         <br><small>Εξάμηνο: <b>{{ note.semester }}</b><sup>ο</sup>, Ακαδημαϊκό έτος: <b>{{ note.year }}</b></small>
                     </h4>
                     <p>
@@ -30,46 +37,48 @@ keywords: notes, σημειώσεις, σημειωσεις, διαλέξεις,
                             {{- repository.last_update|date("d F Y") -}}
                         </span>
                     </p>
-                    <a href="http://helit.org/ece-notes/{{ note.slug }}.pdf" class="btn btn-danger" aria-label="PDF">
-                        <span class="fa fa-file-pdf-o" aria-hidden="true"></span>
-                        Download
-                    </a>
-                    <a href="https://github.com/kongr45gpen/ece-notes/blob/master/{{ note.slug }}.tex" class="btn btn-default" aria-label="LaTeX source">
-                        <span class="fa fa-code" aria-hidden="true"></span>
-                        Κώδικας σε LaTeX
-                    </a>
+                    <div class="btn-responsive" role="group">
+                        <a href="http://helit.org/ece-notes/{{ note.slug }}.pdf" class="btn {% if note.selected %}btn-danger{%- else %}btn-danger{% endif %}" aria-label="PDF">
+                            <span class="fa fa-file-pdf-o" aria-hidden="true"></span>
+                            Download
+                        </a>
+                        <a href="https://github.com/kongr45gpen/ece-notes/blob/master/{{ note.slug }}.tex" class="btn btn-default" aria-label="LaTeX source">
+                            <span class="fa fa-code" aria-hidden="true"></span>
+                            Κώδικας σε LaTeX
+                        </a>
+                    </div>
 
                     {%- if note.active and repository.lectures is not empty %}
-                    <div class="lectures">
-                        <h5>Τελευταίες Διαλέξεις:</h5>
-                        <ul>
-                            {% for lecture in repository.lectures %}
-                                <li>
-                                    {{ lecture.professor }}
-                                    #<span class="count">{{ lecture.number }}</span>
-                                    ({{ lecture.date|date("d/m/Y") }})
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+                        <div class="lectures">
+                            <h5>Τελευταίες Διαλέξεις:</h5>
+                            <ul>
+                                {% for lecture in repository.lectures %}
+                                    <li>
+                                        {{ lecture.professor }}
+                                        #<span class="count">{{ lecture.number }}</span>
+                                        ({{ lecture.date|date("d/m/Y") }})
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     {% endif %}
                 </div>
                 <div class="media-right">
                     {#<a href="#">#}
-                        {% set images = finder('assets/imgs/notes').files.name( note.slug ~ '.*') %}
-                        {% if images is not empty %}
-                            {% for image in images %}
-                                <img class="media-object" src="{{ url(image) }}" alt="Lesson logo">
-                            {% endfor %}
-                        {% endif %}
+                    {% set images = finder('assets/imgs/notes').files.name( note.slug ~ '.*') %}
+                    {% if images is not empty %}
+                        {% for image in images %}
+                            <img class="media-object" src="{{ url(image) }}" alt="Lesson logo">
+                        {% endfor %}
+                    {% endif %}
                     {#</a>#}
                 </div>
             </div>
-            {% if not loop.last %}
-                <hr role="separator">
-            {% endif %}
-        {% endfor %}
-    </div>
+        </div>
+        {% if not loop.last %}
+            <hr role="separator">
+        {% endif %}
+    {% endfor %}
 
     <footer class="footer">
         <div class="row">

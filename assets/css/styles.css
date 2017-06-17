@@ -162,7 +162,22 @@ body {
     font-size: inherit; }
 
 .media {
-  overflow: visible; }
+  overflow: visible;
+  margin: auto;
+  margin-top: 20px !important;
+  margin-bottom: 20px; }
+  @media (min-width: 768px) {
+    .media {
+      width: 750px; } }
+  @media (min-width: 992px) {
+    .media {
+      width: 970px; } }
+  @media (min-width: 1200px) {
+    .media {
+      width: 1170px; } }
+
+.media-container {
+  padding: 0 20px; }
 
 .media-object {
   padding: 1px;
@@ -172,3 +187,37 @@ body {
   border-radius: 1px;
   height: 128px;
   box-sizing: content-box; }
+  @media (max-width: 600px) {
+    .media-object {
+      height: auto;
+      max-width: 30vw; } }
+
+.media-active {
+  background-color: rgba(150, 150, 200, 0.3);
+  border-top: 1px solid rgba(30, 30, 150, 0.5);
+  border-bottom: 1px solid rgba(30, 30, 150, 0.5);
+  box-shadow: inset 2px 3px 5px rgba(100, 100, 100, 0.5); }
+  .media-active .media-object {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(99, 99, 99, 0.8); }
+
+@media (max-width: 600px) {
+  .btn-responsive {
+    max-width: 20rem; }
+    .btn-responsive .btn {
+      display: block;
+      float: none;
+      width: 100%;
+      max-width: 100%; }
+    .btn-responsive > .btn:not(:first-child):not(:last-child) {
+      border-radius: 0; }
+    .btn-responsive > .btn:first-child:not(:last-child) {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0; }
+    .btn-responsive > .btn:last-child:not(:first-child) {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0; } }
+
+hr {
+  width: 100%;
+  margin: 0; }
