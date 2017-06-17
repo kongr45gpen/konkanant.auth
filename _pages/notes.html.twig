@@ -33,9 +33,12 @@ keywords: notes, σημειώσεις, σημειωσεις, διαλέξεις,
                         <br><small>Εξάμηνο: <b>{{ note.semester }}</b><sup>ο</sup>, Ακαδημαϊκό έτος: <b>{{ note.year }}</b></small>
                     </h4>
                     <p>
-                        Τελευταία ενημέρωση: <span class="last-update" data-timestamp="{{ repository.last_update|date("c") }}">
+                        Τελευταία ενημέρωση: <a
+                                class="last-update"
+                                href="https://github.com/kongr45gpen/ece-notes/commit/{{ repository.last_commit }}"
+                                data-timestamp="{{ repository.last_update|date("c") }}">
                             {{- repository.last_update|date("d F Y") -}}
-                        </span>
+                        </a>
                     </p>
                     <div class="btn-responsive" role="group">
                         <a href="http://helit.org/ece-notes/{{ note.slug }}.pdf" class="btn {% if note.selected %}btn-danger{%- else %}btn-danger{% endif %}" aria-label="PDF">

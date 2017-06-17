@@ -74,8 +74,13 @@ FORMAT;
 
             $filesize = filesize($this->path . '/' . $filename);
 
+            if ($output->isDebug()) {
+                dump($lastcommit);
+            }
+
             $out[$subject['slug']] = [
                 'last_update' => $lastcommit->author->date,
+                'last_commit' => $lastcommit->commit,
                 'lectures' => (!$lastlecture) ? null : [ [
                     'date' => $lastlecture->author->date,
                     'professor' => $matches[1],
