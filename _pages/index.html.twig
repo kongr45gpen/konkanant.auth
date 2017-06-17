@@ -45,33 +45,6 @@ menu: false
             </ul>
         </div>
     </div>
-
-    <footer class="footer">
-        <div class="row">
-            <div class="col-md-4">
-                &nbsp;
-            </div>
-            <div class="col-md-4">
-                <p class="text-center text-muted">Built with <a href="https://github.com/stakx-io/stakx">Stakx</a></p>
-            </div>
-            <div class="col-md-4">
-                <ul class="list-inline">
-                    <li>
-                        <a href="{{ url('/') }}">Home</a>
-                    </li>
-                    {% for item in menu | order("title") %}
-                        <li>
-                            <a href="{{ url(item) }}">{{ item.title }}</a>
-                        </li>
-                    {% endfor %}
-                    <li>
-                        <a href="https://github.com/kongr45gpen/konkanant.auth">
-                            <i class="fa fa-fw fa-github"></i>
-                        </a>
-                </ul>
-            </div>
-        </div>
-    </footer>
 {% endblock %}
 
 {% block scripts %}

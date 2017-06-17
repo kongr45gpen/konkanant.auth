@@ -7,26 +7,29 @@
 {% endblock %}
 
 {% block footer %}
-    {#
     <div class="row">
         <div class="col-md-4">
-            {{ parent() }}
+            &nbsp;
         </div>
         <div class="col-md-4">
-            <p class="text-center text-muted">Built with <i class="fa fa-fw fa-heart"></i> with Stakx</p>
+            <p class="text-center text-muted">Built with <a href="https://github.com/stakx-io/stakx">Stakx</a>
+            </p>
         </div>
         <div class="col-md-4">
             <ul class="list-inline">
                 <li>
-                    <a href="{{ url('/') }}">Stakx</a>
+                    <a href="{{ url('/') }}">Home</a>
                 </li>
                 {% for item in menu | order("title") %}
                     <li>
                         <a href="{{ url(item.permalink) }}">{{ item.title }}</a>
                     </li>
                 {% endfor %}
+                <li>
+                    <a href="https://github.com/kongr45gpen/konkanant.auth">
+                        <i class="fa fa-fw fa-github"></i>
+                    </a>
             </ul>
         </div>
     </div>
-    #}
 {% endblock %}
