@@ -8,7 +8,6 @@
   semester: 4
   year: 2016-2017
   active: true
-  selected: true
 - lesson: Θεωρία Σημάτων & Συστημάτων
   slug: signals
   semester: 3
