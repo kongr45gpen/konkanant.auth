@@ -3,6 +3,7 @@
   semester: 5
   year: 2017-2018
   active: true
+  selected: true
 - lesson: Συστήματα Αυτομάτου Ελέγχου I
   slug: sae1
   semester: 5
