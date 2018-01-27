@@ -8,6 +8,7 @@
   semester: 5
   year: 2017-2018
   active: true
+  selected: true
 - lesson: Αριθμητική Ανάλυση
   slug: numerical
   semester: 4
