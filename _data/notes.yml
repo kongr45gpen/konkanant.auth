@@ -1,13 +1,16 @@
+- lesson: Συστήματα Αυτομάτου Ελέγχου II
+  slug: sae2
+  semester: 6
+  year: 2017-2018
+  active: true
 - lesson: Αναλογικές Τηλεπικοινωνίες
   slug: atelecom
   semester: 5
   year: 2017-2018
-  active: true
 - lesson: Συστήματα Αυτομάτου Ελέγχου I
   slug: sae1
   semester: 5
   year: 2017-2018
-  active: true
 - lesson: Αριθμητική Ανάλυση
   slug: numerical
   semester: 4
