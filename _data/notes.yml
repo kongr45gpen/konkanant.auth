@@ -1,3 +1,13 @@
+- lesson: Συστήματα Χειροκίνητου Ελέγχου II
+  slug: sxe2
+  semester: 6
+  year: 2017-2018
+  active: true
+- lesson: Ανεφάρμοστα Μαθηματικά I
+  slug: unapplied
+  semester: 6
+  year: 2017-2018
+  active: true
 - lesson: Συστήματα Αυτομάτου Ελέγχου II
   slug: sae2
   semester: 6
