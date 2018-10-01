@@ -1,8 +1,12 @@
+- lesson: Ψηφιακή Επεξεργασία Σήματος
+  slug: dsp
+  semester: 7
+  year: 2018-2019
+  active: true
 - lesson: Συστήματα Αυτομάτου Ελέγχου II
   slug: sae2
   semester: 6
   year: 2017-2018
-  active: true
 - lesson: Αναλογικές Τηλεπικοινωνίες
   slug: atelecom
   semester: 5
