@@ -51,7 +51,7 @@ keywords: notes, σημειώσεις, σημειωσεις, διαλέξεις,
                         </a>
                     </div>
 
-                    {%- if note.active %}
+                    {%- if note.active and repository.lectures is not empty %}
                         <div class="lectures">
                             <h5>Τελευταίες Διαλέξεις:</h5>
                             <ul>
