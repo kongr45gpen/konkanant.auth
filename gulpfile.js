@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 var livereload = require('gulp-livereload');
 var autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
@@ -37,7 +37,7 @@ gulp.task('sass', function(){
     return gulp.src('assets/scss/*.scss')
         .pipe(sass()).on('error', swallowError)
         .pipe(autoprefixer({
-            browsers: ['last 2 versions']
+            overrideBrowserslist: ['last 2 versions']
         })).on('error', swallowError)
         .pipe(gulp.dest('assets/css'))
         .pipe(livereload()).on('error', swallowError);
