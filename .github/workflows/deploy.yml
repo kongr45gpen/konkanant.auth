@@ -17,7 +17,7 @@ jobs:
 
       - name: Store personal YML configuration
         env:
-          yaml: ${{ secrets.PERSONAL_YML }}
+          PERSONAL_YML: ${{ secrets.PERSONAL_YML }}
         run: "echo $PERSONAL_YML > _data/personal.yml"
 
       - name: Build website
