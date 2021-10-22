@@ -31,7 +31,7 @@ jobs:
           known_hosts: ${{ secrets.SSH_KEYSCAN }}
 
       - name: Deploy with rsync
-        run: rsync -navz ./_site/ece-notes/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_SERVER }}:${{ secrets.REMOTE_DIRECTORY }}
+        run: rsync -avz ./_site/ece-notes/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_SERVER }}:${{ secrets.REMOTE_DIRECTORY }}
 
       # - name: Use Node.js 16.x
       #   uses: actions/setup-node@v1
