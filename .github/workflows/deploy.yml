@@ -27,6 +27,7 @@ jobs:
           repository: kongr45gpen/ece-notes
           path: notes
           lfs: true
+          fetch-depth: 0
 
       - name: Cache Composer packages
         id: composer-cache
@@ -44,9 +45,6 @@ jobs:
       - name: Extract commit information
         run: php miner.php ../notes
         working-directory: ./miner
-
-      - name: Debug
-        run: cat _data/notes-extracted.yml
 
       - name: Build website
         run: php stakx.phar build
