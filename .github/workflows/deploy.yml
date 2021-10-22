@@ -27,7 +27,7 @@ jobs:
       - name: Download ECE notes
         uses: actions/checkout@v2
         with:
-          name: kongr45gpen/ece-notes
+          repository: kongr45gpen/ece-notes
           path: notes
           lfs: true
 
