@@ -24,4 +24,4 @@ You can use the `watch` directive for either of these commands to automatically 
 
 To test your generated content, run a web server
 (e.g. `php -S localhost:8000`) in the *_site* directory,
-and browse [http://localhost:8000/konkanant](http://localhost:8000/konkanant).
+and browse [http://localhost:8000/ece-notes](http://localhost:8000/ece-notes).

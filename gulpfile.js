@@ -55,8 +55,8 @@ gulp.task('js', function() {
 gulp.task('watch', function(){
     livereload.listen();
 
-    gulp.watch('assets/scss/**/*.scss', ['sass']);
-    gulp.watch('assets/js/**/*.js', ['js']);
+    gulp.watch('assets/scss/**/*.scss', gulp.series('sass'));
+    gulp.watch('assets/js/**/*.js', gulp.series('js'));
 });
 
 function swallowError(error) {
