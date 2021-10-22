@@ -21,6 +21,13 @@ jobs:
         env:
           PERSONAL_YML: ${{ secrets.PERSONAL_YML }}
 
+      - name: Download ECE notes
+        uses: actions/checkout@v2
+        with:
+          repository: kongr45gpen/ece-notes
+          path: notes
+          lfs: true
+
       - name: Cache Composer packages
         id: composer-cache
         uses: actions/cache@v2
@@ -40,13 +47,6 @@ jobs:
 
       - name: Build website
         run: php stakx.phar build
-
-      - name: Download ECE notes
-        uses: actions/checkout@v2
-        with:
-          repository: kongr45gpen/ece-notes
-          path: notes
-          lfs: true
 
       - name: Deploy all PDF files
         shell: bash
