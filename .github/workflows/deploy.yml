@@ -1,5 +1,5 @@
 name: first-github-action
-on: [push]
+on: [push, repository_dispatch]
 jobs:
   deploy:
     runs-on: ubuntu-latest
