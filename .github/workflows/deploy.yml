@@ -15,8 +15,8 @@ jobs:
           target: "stakx.phar"
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Download stakx
-        # run: curl https://github.com/stakx-io/stakx/releases/download/v0.2.1/stakx-0.2.1.phar -o stakx.phar
+      - name: Store personal YML configuration
+        run: echo {{ PERSONAL_YML }} > _data/personal.yml
 
       - name: Build website
         run: php stakx.phar build
