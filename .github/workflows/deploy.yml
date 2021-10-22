@@ -21,7 +21,7 @@ jobs:
         run: "echo $PERSONAL_YML > _data/personal.yml"
 
       - name: test debug
-        run: tail -n 1 cat _data/personal.yml
+        run: tail -n 1 _data/personal.yml
 
       - name: Build website
         run: php stakx.phar build
@@ -30,6 +30,7 @@ jobs:
         uses: shimataro/ssh-key-action@v2
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.SSH_KEYSCAN }}
 
       # - name: Use Node.js 16.x
       #   uses: actions/setup-node@v1
