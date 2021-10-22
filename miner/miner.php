@@ -57,7 +57,7 @@ FORMAT;
 
             $arguments = [
                 'log',
-                '-n 1',
+                '--max-count=1',
                 '--date=iso',
                 '--format=' . self::$jsonFormat,
                 '-i',
@@ -67,6 +67,7 @@ FORMAT;
             $lastcommit = json_decode($this->gitCommand($arguments));
 
             $arguments[20] = "--grep=lecture \\?[0-9]\\+";
+            ksort($arguments);
             $lastlecture = json_decode($this->gitCommand($arguments));
             if ($lastlecture) {
                 preg_match('/(.*) Lecture ([0-9]+)/i', $lastlecture->subject, $matches);

@@ -1,0 +1,73 @@
+name: first-github-action
+on: [push, repository_dispatch]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download stakx
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          repo: "stakx-io/stakx"
+          version: "tags/v0.2.1"
+          file: "stakx-0.2.1.phar"
+          target: "stakx.phar"
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Store personal YML configuration
+        run: 'echo "$PERSONAL_YML" > _data/personal.yml'
+        shell: bash
+        env:
+          PERSONAL_YML: ${{ secrets.PERSONAL_YML }}
+
+      - name: Download ECE notes
+        uses: actions/checkout@v2
+        with:
+          repository: kongr45gpen/ece-notes
+          path: notes
+          lfs: true
+          fetch-depth: 0
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          path: ./miner/vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install Composer packages
+        run: composer install --prefer-dist --no-progress
+        working-directory: ./miner
+
+      - name: Extract commit information
+        run: php miner.php ../notes
+        working-directory: ./miner
+
+      - name: Build website
+        run: php stakx.phar build
+
+      - name: Deploy all PDF files
+        shell: bash
+        run: 'mv -v ./notes/*.pdf ./_site/ece-notes/'
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.SSH_KEYSCAN }}
+
+      - name: Deploy with rsync
+        run: rsync -avz ./_site/ece-notes/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_SERVER }}:${{ secrets.REMOTE_DIRECTORY }}
+
+      # - name: Use Node.js 16.x
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 16.x
+
+      # - name: Build
+      #   run: |
+      #     npm install
+      #     gulp sass
