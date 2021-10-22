@@ -35,6 +35,24 @@ jobs:
         shell: bash
         run: 'mv -v ./notes/*.pdf ./_site/ece-notes/'
 
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
+        working-directory: ./miner
+
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          working-directory: ./miner
+          path: vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install Composer packages
+        run: composer install --prefer-dist --no-progress
+        working-directory: ./miner
+
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
