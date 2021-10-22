@@ -39,8 +39,7 @@ jobs:
         id: composer-cache
         uses: actions/cache@v2
         with:
-          working-directory: ./miner
-          path: vendor
+          path: ./miner/vendor
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-php-
