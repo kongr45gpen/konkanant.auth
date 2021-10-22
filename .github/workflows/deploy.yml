@@ -24,6 +24,17 @@ jobs:
       - name: Build website
         run: php stakx.phar build
 
+      - name: Download ECE notes
+        uses: actions/checkout@v2
+        with:
+          name: kongr45gpen/ece-notes
+          path: notes
+          lfs: true
+
+      - name: Deploy all PDF files
+        shell: bash
+        run: 'mv -v ./notes/*.pdf ./_site/ece-notes/'
+
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
