@@ -21,6 +21,23 @@ jobs:
         env:
           PERSONAL_YML: ${{ secrets.PERSONAL_YML }}
 
+      - name: Cache Composer packages
+        id: composer-cache
+        uses: actions/cache@v2
+        with:
+          path: ./miner/vendor
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
+
+      - name: Install Composer packages
+        run: composer install --prefer-dist --no-progress
+        working-directory: ./miner
+
+      - name: Extract commit information
+        run: php miner.php ../notes
+        working-directory: ./miner
+
       - name: Build website
         run: php stakx.phar build
 
@@ -34,19 +51,6 @@ jobs:
       - name: Deploy all PDF files
         shell: bash
         run: 'mv -v ./notes/*.pdf ./_site/ece-notes/'
-
-      - name: Cache Composer packages
-        id: composer-cache
-        uses: actions/cache@v2
-        with:
-          path: ./miner/vendor
-          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-php-
-
-      - name: Install Composer packages
-        run: composer install --prefer-dist --no-progress
-        working-directory: ./miner
 
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
