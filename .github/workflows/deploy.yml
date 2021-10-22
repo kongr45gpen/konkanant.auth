@@ -16,10 +16,15 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Store personal YML configuration
-        run: echo ${{ secrets.PERSONAL_YML }} > _data/personal.yml
+        run: "echo ${{ secrets.PERSONAL_YML }} > _data/personal.yml"
 
       - name: Build website
         run: php stakx.phar build
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       # - name: Use Node.js 16.x
       #   uses: actions/setup-node@v1
