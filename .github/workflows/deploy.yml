@@ -16,12 +16,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Store personal YML configuration
+        run: 'echo "$PERSONAL_YML" > _data/personal.yml'
+        shell: bash
         env:
           PERSONAL_YML: ${{ secrets.PERSONAL_YML }}
-        run: "echo $PERSONAL_YML > _data/personal.yml"
-
-      - name: test debug
-        run: tail -n 1 _data/personal.yml
 
       - name: Build website
         run: php stakx.phar build
@@ -31,6 +29,9 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.SSH_KEYSCAN }}
+
+      - name: Deploy with rsync
+        run: rsync -navz ./_site/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_SERVER }}:REMOTE_DIRECTORY
 
       # - name: Use Node.js 16.x
       #   uses: actions/setup-node@v1
