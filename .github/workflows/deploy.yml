@@ -16,7 +16,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Store personal YML configuration
-        run: echo {{ PERSONAL_YML }} > _data/personal.yml
+        run: echo ${{ secrets.PERSONAL_YML }} > _data/personal.yml
 
       - name: Build website
         run: php stakx.phar build
