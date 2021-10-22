@@ -20,6 +20,9 @@ jobs:
           PERSONAL_YML: ${{ secrets.PERSONAL_YML }}
         run: "echo $PERSONAL_YML > _data/personal.yml"
 
+      - name: test debug
+        run: tail -n 1 cat _data/personal.yml
+
       - name: Build website
         run: php stakx.phar build
 
